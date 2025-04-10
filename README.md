@@ -32,7 +32,7 @@ These examples provide a solid foundation for understanding how classification w
 
 
 Below, we provide detailed explanations and code snippets for each script.
-## `model_1.py`: **Binary Classification Model**
+## `model_1.py`: Binary Classification Model
 
 This script builds and trains a binary classifier using PyTorch on a toy dataset. Key steps in model_1.py:
 
