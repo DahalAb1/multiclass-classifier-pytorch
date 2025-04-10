@@ -331,14 +331,85 @@ Multi-class Classification Demo: Run multiclass_model.py to train the multi-clas
     This will generate a 4-class dataset and train the network for 120 epochs, printing the training and testing metrics every 10 epochs. You can observe the accuracy improving over epochs. (Optional: If you want to visualize the dataset clusters, you can call the showData() function in the script or run those lines in a Jupyter notebook to see a scatter plot of the generated data.)*
 
 Both scripts run purely in the console and will output training progress there. There is no file output by default. You can modify the scripts to save models or plots as needed.
-Future Plans
 
- Some ideas for future improvements and extensions of this project include:
 
-    - Use Real Datasets: Replace the synthetic data with real-world datasets (e.g., using the Iris dataset for multi-class classification or another binary classification dataset) to further validate the models.
+## 💾 Saving, Loading & Using a Trained Model in PyTorch
 
-    - Model Enhancements: Experiment with deeper networks or different architectures (adding more layers or using different activation functions) to see how they affect performance. Also, try different optimizers (Adam, RMSprop) or tuning learning rates for potentially faster convergence.
+This section explains how to save, load, and run inference with a trained PyTorch model using the `MultiDef` architecture defined below.
 
-    - Evaluation & Visualization: Add more evaluation metrics (such as precision, recall, confusion matrix) and visualization of decision boundaries or loss curves to better understand the model performance.
+---
 
-    - Packaging and Tests: Refactor the code into functions or classes for easier reuse, and add unit tests. Possibly create a Jupyter notebook for an interactive tutorial format, and provide a requirements file or setup script for easy installation.
+### 🧠 Model Architecture
+
+```python
+import torch.nn as nn
+
+class MultiDef(nn.Module):
+    def __init__(self, input_features, output_features, hiddel_units=8):
+        super().__init__()
+        self.layer1 = nn.Linear(in_features=input_features, out_features=hiddel_units)
+        self.layer2 = nn.Linear(in_features=hiddel_units, out_features=hiddel_units)
+        self.layer3 = nn.Linear(in_features=hiddel_units, out_features=output_features)
+
+    def forward(self, x):
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        return x
+```
+
+### 💾 Saving the Model
+Use torch.save() to save the model’s `state_dict` (i.e., learned parameters):
+```python
+from pathlib import Path
+import torch
+
+# Path setup
+MODEL_SAVE = Path("MODEL")
+MODEL_SAVE.mkdir(parents=True, exist_ok=True)  # Create the folder if it doesn't exist
+MODEL_NAME = "MODEL_1.pth"
+MODEL_PATH = MODEL_SAVE / MODEL_NAME
+
+# Save the trained model
+torch.save(obj=MultiDef.state_dict(), f=MODEL_PATH)
+
+```
+📌 **Note**: Replace `MultiDef.state_dict()` with the trained model object, e.g., `model.state_dict(`.
+
+### 🔁 Loading the Model
+To use the saved model later for inference or further training:
+
+```python
+import torch
+
+# Recreate the model structure (must match the saved model's architecture)
+loadModel = MultiDef(input_features=2, output_features=4)
+
+# Load the saved weights
+loadModel.load_state_dict(torch.load("MODEL/MODEL_1.pth"))
+
+# Switch to evaluation mode before inference
+loadModel.eval()
+```
+🛑 **Important** : The values for `input_features` and `output_features` must be the same as those used during training.
+
+### 🚀 Running the Loaded Model
+Now you can use the loaded model to make predictions:
+
+``` python
+
+import torch
+
+# Sample input data (should match input size used during training)
+sample_input = torch.tensor([[1.5, 2.3]], dtype=torch.float32)
+
+# Run inference (disable gradient calculation)
+with torch.inference_mode():
+    output = loadModel(sample_input)
+    predicted_class = torch.softmax(output, dim=1).argmax(dim=1)
+
+print(f"Predicted class: {predicted_class.item()}")
+```
+
+
+
