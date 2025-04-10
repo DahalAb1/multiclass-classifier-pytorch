@@ -46,7 +46,7 @@ This script builds and trains a binary classifier using PyTorch on a toy dataset
 
    - **Output**: Prints the training and testing accuracy and loss every 100 epochs to show progress.
 
-# model_1.py– Binary Classification Model (expand to view code)
+# model_1.py– Binary Classification Model 
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -106,7 +106,7 @@ def accuracy_fn(y_true, y_pred):
     total = len(y_true)
     return (correct / total) * 100  # percentage of correct predictions
 ```
-# 7. Set manual seed for reproducibility (ensures same random initialization every run)
+# 7. Set manual seed for reproducibility 
 ```python 
 torch.manual_seed(42)
 ```
@@ -155,7 +155,7 @@ for epoch in range(epochs):
 ```
 
 
-## `multiclass_model.py`: **Multi-class Classification Model**
+## `multiclass_model.py`: Multi-class Classification Model
 
 This script builds and trains a classifier for multiple classes using PyTorch. Key steps in multiclass_model.py:
 
@@ -169,7 +169,7 @@ This script builds and trains a classifier for multiple classes using PyTorch. K
 
     Output: Prints the training and testing loss and accuracy every 10 epochs to track performance.
 
-# ** `multiclass_model.py` – Multi-class Classification Model **
+#  `multiclass_model.py` – Multi-class Classification Model 
 
 ```python 
 from torch import nn
