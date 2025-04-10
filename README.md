@@ -24,7 +24,7 @@ This script builds and trains a binary classifier using PyTorch on a toy dataset
 
    - **Output**: Prints the training and testing accuracy and loss every 100 epochs to show progress.
 
-<details> <summary><strong>model_1.py</strong> – <em>Binary Classification Model (expand to view code)</em></summary>
+# ** model_1.py– Binary Classification Model (expand to view code)**
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -90,7 +90,7 @@ torch.manual_seed(42)
 ```
 
 # 8. Train the model for a certain number of epochs
-
+```python
 epochs = 2000
 for epoch in range(epochs):
     # Set model to training mode
@@ -130,8 +130,8 @@ for epoch in range(epochs):
               f"Train Loss: {loss:.4f}, Train Acc: {acc:.2f}% | "
               f"Test Loss: {test_loss:.4f}, Test Acc: {test_acc:.2f}%")
 
+```
 
-</details>
 
 ## `multiclass_model.py`: **Multi-class Classification Model**
 
@@ -147,7 +147,7 @@ This script builds and trains a classifier for multiple classes using PyTorch. K
 
     Output: Prints the training and testing loss and accuracy every 10 epochs to track performance.
 
-<details> <summary><strong>multiclass_model.py</strong> – <em>Multi-class Classification Model (expand to view code)</em></summary>
+# ** `multiclass_model.py` – Multi-class Classification Model **
 
 ```python 
 from torch import nn
@@ -222,7 +222,7 @@ loss_function = nn.CrossEntropyLoss()                      # suitable for multi-
 optimizer = torch.optim.SGD(model.parameters(), lr=0.01)   # SGD optimizer with a small learning rate
 ```
 # 8. Training loop for a fixed number of epochs
-````python
+
 epochs = 120
 for epoch in range(epochs):
     model.train()  # set model to training mode
@@ -270,9 +270,9 @@ def accuracy_fn(y_true, y_pred):
     """
     correct = torch.eq(y_true, y_pred).sum().item()
     return (correct / len(y_true)) * 100
-```
 
-</details>
+
+
 ## Installation
 
 To run these examples, you will need Python 3.x installed. We recommend using a virtual environment to avoid conflicts with other packages. Follow the steps below to set up the project:
