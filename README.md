@@ -1,6 +1,6 @@
 ## Overview
 
-This repository contains two simple yet powerful PyTorch examples that demonstrate the core concepts of **binary** and **multi-class classification** using synthetic datasets. These examples are designed to be beginner-friendly with clear, well-commented code and step-by-step training logic.
+This repository contains two simple yet powerful PyTorch examples that demonstrate the core concepts of **binary** and **multi-class classification** using synthetic datasets. These examples are designed to be beginner-friendly with clear, well-commented code.
 
 ### 📁 What's Inside
 
