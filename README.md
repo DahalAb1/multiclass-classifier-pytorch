@@ -1,13 +1,35 @@
-### Binary and Multi-class Classification in PyTorch
+## Overview
 
-This repository contains two Python scripts that demonstrate simple **binary classification** and **multi-class classification** using PyTorch. The first script implements a basic binary classification model (a form of logistic regression using a small neural network) on a synthetic dataset. The second script demonstrates a multi-class classification model on a dataset with multiple classes (similar concept to the Iris dataset, but here using a generated dataset with four clusters). These examples are designed to be beginner-friendly, with clear code and comments to help you understand how data is processed, models are built, and training is performed step by step.
+This repository contains two simple yet powerful PyTorch examples that demonstrate the core concepts of **binary** and **multi-class classification** using synthetic datasets. These examples are designed to be beginner-friendly with clear, well-commented code and step-by-step training logic.
 
-In the binary classification example (`model_1.py`), we generate a two-class dataset of points in a circle pattern and train a simple neural network with a sigmoid output to distinguish the classes. In the multi-class example (`multiclass_model.py`), we generate a dataset of points belonging to four clusters and train a neural network with a softmax output to classify each point into one of four classes. Both scripts illustrate core machine learning tasks like data splitting, model definition, training loops, loss computation, and accuracy evaluation using PyTorch and scikit-learn.
+### 📁 What's Inside
+
+- **`model_1.py` — Binary Classification**  
+  Trains a small neural network on a two-class circular dataset. Uses a sigmoid activation for output and demonstrates basic logistic regression concepts.
+
+- **`multiclass_model.py` — Multi-Class Classification**  
+  Trains a neural network to classify points into one of four clusters using softmax activation. Similar in spirit to the Iris dataset, but generated from scratch.
+
+Both scripts cover essential machine learning steps:
+- Data generation and visualization  
+- Model definition using PyTorch  
+- Training loop with backpropagation  
+- Loss calculation with `CrossEntropyLoss`  
+- Accuracy evaluation  
+- Test set validation  
+
+These examples provide a solid foundation for understanding how classification works in PyTorch.
+
+---
+
 ## Project Files
 
-    `model_1.py` – Binary Classification Model: Creates a synthetic two-class dataset (two interlocking circles) and trains a simple neural network (logistic regression model with hidden layers) to classify the points into two classes (class 0 vs 1).
+| File Name             | Description                                 |
+|----------------------|---------------------------------------------|
+| `model_1.py`         | Binary classification with 2D circular data |
+| `multiclass_model.py`| Multi-class classification (4 clusters)     |
 
-    `multiclass_model.py` – Multi-class Classification Model: Generates a synthetic dataset of points in four clusters (you can think of this as a stand-in for a dataset like Iris with multiple classes) and trains a neural network to classify points into one of four categories.
+
 
 Below, we provide detailed explanations and code snippets for each script.
 ## `model_1.py`: **Binary Classification Model**
@@ -222,7 +244,7 @@ loss_function = nn.CrossEntropyLoss()                      # suitable for multi-
 optimizer = torch.optim.SGD(model.parameters(), lr=0.01)   # SGD optimizer with a small learning rate
 ```
 # 8. Training loop for a fixed number of epochs
-
+```python
 epochs = 120
 for epoch in range(epochs):
     model.train()  # set model to training mode
@@ -262,8 +284,11 @@ for epoch in range(epochs):
         print(f"  Train Loss: {train_loss:.4f} | Train Accuracy: {train_acc:.2f}%")
         print(f"  Test  Loss: {test_loss:.4f}  | Test Accuracy: {test_acc:.2f}%")
         print("-" * 50)
+```
 
 # Note: accuracy_fn is assumed to be defined similarly as in model_1.py
+
+```python
 def accuracy_fn(y_true, y_pred):
     """
     Utility function to calculate accuracy (% of correct predictions).
@@ -271,6 +296,7 @@ def accuracy_fn(y_true, y_pred):
     correct = torch.eq(y_true, y_pred).sum().item()
     return (correct / len(y_true)) * 100
 
+```
 
 
 ## Installation
