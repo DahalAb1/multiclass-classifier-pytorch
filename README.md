@@ -386,7 +386,7 @@ import torch
 loadModel = MultiDef(input_features=2, output_features=4)
 
 # Load the saved weights
-loadModel.load_state_dict(torch.load("MODEL/MODEL_1.pth"))
+loadModel.load_state_dict(torch.load("MODEL_1.pth"))
 
 # Switch to evaluation mode before inference
 loadModel.eval()
