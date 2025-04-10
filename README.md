@@ -129,7 +129,6 @@ for epoch in range(epochs):
         print(f"Epoch: {epoch} | "
               f"Train Loss: {loss:.4f}, Train Acc: {acc:.2f}% | "
               f"Test Loss: {test_loss:.4f}, Test Acc: {test_acc:.2f}%")
-```
 
 </details>
 
@@ -148,7 +147,7 @@ This script builds and trains a classifier for multiple classes using PyTorch. K
     **Output**: Prints the training and testing loss and accuracy every 10 epochs to track performance.
 
 <details> <summary><strong>multiclass_model.py</strong> – <em>Multi-class Classification Model (expand to view code)</em></summary>
-
+```
 ```python 
 from torch import nn
 from sklearn.datasets import make_blobs
