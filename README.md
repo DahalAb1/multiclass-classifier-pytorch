@@ -46,7 +46,7 @@ This script builds and trains a binary classifier using PyTorch on a toy dataset
 
    - **Output**: Prints the training and testing accuracy and loss every 100 epochs to show progress.
 
-# ** model_1.py– Binary Classification Model (expand to view code)**
+# model_1.py– Binary Classification Model (expand to view code)
 
 ```python
 from sklearn.model_selection import train_test_split
