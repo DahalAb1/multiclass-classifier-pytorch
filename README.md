@@ -279,23 +279,22 @@ To run these examples, you will need Python 3.x installed. We recommend using a 
 
     Clone the repository (or download the ZIP):
 
-```
+
 git clone https://github.com/DahalAb1/multiclass-classifier-pytorch.git
-```
+
 
 Install the required packages. You can install the dependencies using `pip`:
-```
+
     pip install torch torchvision scikit-learn matplotlib
 
     Note: The above command installs PyTorch (CPU version) along with scikit-learn and matplotlib. If you have a CUDA-compatible GPU and want to use it, consider installing the appropriate PyTorch version from the official PyTorch Website.
-```
 ## Usage
 
 After installing the dependencies, you can run each script directly to train the models and see the output:
 
-   ` Binary Classification Demo: Run model_1.py to train the binary classifier.`
+   Binary Classification Demo: Run model_1.py to train the binary classifier.
 
-`python model_1.py`
+python model_1.py
 
 This will generate the synthetic circle data and train the neural network. The program will print the training and testing accuracy/loss every 100 epochs. After 2000 epochs, you should see the final accuracy printed in the console.
 
@@ -308,7 +307,7 @@ Multi-class Classification Demo: Run multiclass_model.py to train the multi-clas
 Both scripts run purely in the console and will output training progress there. There is no file output by default. You can modify the scripts to save models or plots as needed.
 Future Plans
 
-** Some ideas for future improvements and extensions of this project include:**
+ Some ideas for future improvements and extensions of this project include:
 
     - Use Real Datasets: Replace the synthetic data with real-world datasets (e.g., using the Iris dataset for multi-class classification or another binary classification dataset) to further validate the models.
 
