@@ -90,7 +90,7 @@ torch.manual_seed(42)
 ```
 
 # 8. Train the model for a certain number of epochs
-```python
+
 epochs = 2000
 for epoch in range(epochs):
     # Set model to training mode
@@ -129,7 +129,7 @@ for epoch in range(epochs):
         print(f"Epoch: {epoch} | "
               f"Train Loss: {loss:.4f}, Train Acc: {acc:.2f}% | "
               f"Test Loss: {test_loss:.4f}, Test Acc: {test_acc:.2f}%")
-```
+
 
 </details>
 
